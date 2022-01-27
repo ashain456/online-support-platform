@@ -54,10 +54,10 @@ Password: admin@123
 
 #### Screenshots 
 
-![alt text](1.jpg)
+![alt text](1.png)
 
-![alt text](2.jpg)
+![alt text](2.png)
 
-![alt text](3.jpg)
+![alt text](3.png)
 
-![alt text](4.jpg)
+![alt text](4.png)
