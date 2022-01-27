@@ -8,6 +8,7 @@ table {
 
 a.navbar-brand.mr-auto {
     color: #23de43!important;
+    text-shadow: 0px 2px #79847c;
 }
 
 .card-header {
@@ -26,7 +27,7 @@ a.nav-link:hover{
 }
 
 nav.navbar.navbar-light {
-    background: #15106c!important;
+    background: #26226c!important;
 }
 
 .logout{
