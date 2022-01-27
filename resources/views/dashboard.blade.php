@@ -18,7 +18,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse justify-content-end navbar-collapse " id="navbarNav">
             <ul class="navbar-nav">
 
                 @if(!session()->exists('token-key'))
@@ -34,11 +34,12 @@
                         <a class="nav-link" href="{{ route('customer-complains') }}">Customer Complains</a>
                     </li>
                     <li class="nav-item">
-                        <a style="color: #f59a9a!important;" class="nav-link" href="{{ route('agent-logout') }}">Logout</a>
+                        <a data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-content="Logout" style="color: #f59a9a!important;" class="nav-link logout" href="{{ route('agent-logout') }}"><i class="fa fa-sign-out"></i></a>
                     </li>
                 @endif
 
             </ul>
+
         </div>
     </div>
 </nav>

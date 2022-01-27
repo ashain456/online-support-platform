@@ -1,13 +1,20 @@
+body {
+    background: #fcfcfc;
+}
+
 table {
     min-width: 600px;
 }
 
 a.navbar-brand.mr-auto {
-    color: #23de43;
+    color: #23de43!important;
 }
 
 .card-header {
-    font-size: 20px!important;
+    font-size: 19px!important;
+    background: #272376;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 a.nav-link {
@@ -20,4 +27,15 @@ a.nav-link:hover{
 
 nav.navbar.navbar-light {
     background: #15106c!important;
+}
+
+.logout{
+    padding: 0px;
+    font-size: 24px;
+    margin-top: 2px;
+    margin-left: 20px;
+}
+
+.navbar-toggler {
+    background-color: #98b2cd;
 }
