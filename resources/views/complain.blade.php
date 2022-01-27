@@ -19,7 +19,7 @@
                                 <div style="overflow-x:auto;">
                                 <table class="table table-striped">
                                     <thead>
-                                    <tr>
+                                    <tr class="tbl-header">
                                         <th>Id</th>
                                         <th>Name</th>
                                         <th>Email</th>
@@ -37,8 +37,8 @@
                                                 <td>{{ $dta->customer_name }}</td>
                                                 <td>{{ $dta->customer_email }}</td>
                                                 <td>{{ $dta->customer_phone }}</td>
-                                                <td>{{ $dta->customer_problem }}</td>
-                                                <td>
+                                                <td width="280">{{ $dta->customer_problem }}</td>
+                                                <td align="center">
                                                     @if( $dta->status == "PENDING")
                                                     <span class="badge bg-warning">{{ $dta->status }}</span>
                                                     @else

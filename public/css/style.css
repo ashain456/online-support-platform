@@ -39,3 +39,11 @@ nav.navbar.navbar-light {
 .navbar-toggler {
     background-color: #98b2cd;
 }
+
+.tbl-header{
+    background: #646464;
+    color: #fff;
+    text-align: center;
+    text-transform: UPPERCASE;
+    font-size: 14px;
+}
