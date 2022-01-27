@@ -46,9 +46,10 @@
 @if(Route::currentRouteName() == "dashboard")
     <div class="jumbotron">
         <div class="container">
-            <h3 class="display-4">Online Support Platform Admin Panel</h3>
-            <p style="font-size: 22px; ">Welcome to the Online Support Platform</p>
-            <p><a class="btn btn-primary btn-lg" href="{{ route('agent-logout') }}" role="button">Logout »</a></p>
+            <div class="mt-4 p-5 bg-primary text-white rounded">
+                <h1>Online Support Platform</h1>
+                <p>Welcome to the Online Support Platform Admin Panel</p>
+            </div>
         </div>
     </div>
 @endif
