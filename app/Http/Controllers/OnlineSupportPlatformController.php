@@ -19,11 +19,18 @@ class OnlineSupportPlatformController extends Controller
         $this->onlineSupportPlatformUsecase = $onlineSupportPlatformUsecase;
     }
 
+    /**
+     * @return mixed
+     */
     public function ticket()
     {
         return view('ticket');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function complain(Request $request)
     {
         $data = $request->all();
@@ -33,16 +40,26 @@ class OnlineSupportPlatformController extends Controller
         return view('complain', compact('resDta'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
     public function complainInfo(Request $request, $id=0)
     {
         $resDta = $this->onlineSupportPlatformUsecase->complainInfoById($id);
         return view('complain_info', compact('resDta'));
     }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @return mixed
+     */
     public function complainAddComment(Request $request, $id=0)
     {
         $request->validate([
-            'agent_comment' => 'required|max:200',
+            'agent_comment' => 'required|max:400',
         ]);
 
         $data = $request->all();
@@ -53,6 +70,9 @@ class OnlineSupportPlatformController extends Controller
 
     }
 
+    /**
+     * @return mixed
+     */
     public function dashboard()
     {
 
@@ -65,6 +85,10 @@ class OnlineSupportPlatformController extends Controller
         //return redirect("login")->withSuccess('You are not allowed to access');
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function createTicket(Request $request)
     {
 
@@ -72,7 +96,7 @@ class OnlineSupportPlatformController extends Controller
             'customer_name' => 'required|max:20',
             'customer_email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
             'customer_phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'customer_problem' => 'required|max:200',
+            'customer_problem' => 'required|max:400',
         ],[
             'customer_email.regex' => 'Please enter the valid email address',
         ]);

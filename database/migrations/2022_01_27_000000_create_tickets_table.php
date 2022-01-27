@@ -18,10 +18,10 @@ class CreateTicketsTable extends Migration
             $table->integer('agent_id')->unsigned()->default(0);
             $table->string('customer_name');
             $table->string('customer_email');
-            $table->text('customer_phone');
-            $table->string('customer_problem');
-            $table->string('agent_comment');
-            $table->string('status')->default("OPEN");
+            $table->string('customer_phone');
+            $table->text('customer_problem');
+            $table->text('agent_comment')->default("");
+            $table->string('status')->default("PENDING");
             $table->dateTime('created_at');
         });
     }

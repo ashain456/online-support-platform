@@ -54,7 +54,7 @@
                                                     <div class="d-grid mx-auto">
                                                         <div class="btn-group special" role="group" aria-label="...">
                                                             <a href="/complain" class="btn btn-dark m-2 btn-block">Back</a>
-                                                            <button type="submit" class="btn btn-success m-2 btn-block">Submit</button>
+                                                            <button type="submit" class="btn btn-success m-2 btn-block">Add Comment</button>
                                                         </div>
                                                     </div>
 

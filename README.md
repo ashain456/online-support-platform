@@ -51,3 +51,13 @@ Base Path: http://127.0.0.1:8000/<route>
 Email: admin@support.lk
 Password: admin@123
 ````
+
+#### Screenshots 
+
+![alt text](1.jpg)
+
+![alt text](2.jpg)
+
+![alt text](3.jpg)
+
+![alt text](4.jpg)
