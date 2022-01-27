@@ -48,3 +48,9 @@ nav.navbar.navbar-light {
     text-transform: UPPERCASE;
     font-size: 14px;
 }
+
+.notes {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #747474;
+}

@@ -4,7 +4,7 @@
     <main class="signup-form">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="card">
                         <h3 class="card-header text-center">Support Ticket</h3>
                         <div class="card-body">
@@ -23,6 +23,7 @@
                                     @csrf
                                     <div class="form-group mb-3">
                                         <input type="text" placeholder="Full Name" id="name" class="form-control" name="customer_name">
+                                        <div class="notes">Max 20 digits long</div>
                                         @if ($errors->has('customer_name'))
                                             <span class="text-danger">{{ $errors->first('customer_name') }}</span>
                                         @endif
@@ -37,6 +38,7 @@
 
                                     <div class="form-group mb-3">
                                         <input type="text" placeholder="Phone Number" id="phone" class="form-control" name="customer_phone">
+                                        <div class="notes">10 digits mobile number</div>
                                         @if ($errors->has('customer_phone'))
                                             <span class="text-danger">{{ $errors->first('customer_phone') }}</span>
                                         @endif
@@ -44,6 +46,7 @@
 
                                     <div class="form-group mb-3">
                                         <textarea placeholder="Your Problem Description" id="problem" class="form-control" name="customer_problem"></textarea>
+                                        <div class="notes">Max 400 digits long</div>
                                         @if ($errors->has('customer_problem'))
                                             <span class="text-danger">{{ $errors->first('customer_problem') }}</span>
                                         @endif

@@ -42,6 +42,27 @@ class OnlineSupportPlatformController extends Controller
 
     /**
      * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function complainStatus(Request $request)
+    {
+        $resDta = [];
+        $isSearch = false;
+        $data = $request->all();
+        $keyword = (isset($data['q']))?$data['q']:'';
+
+        if(!empty($keyword)){
+            $isSearch = true;
+            $resDta = $this->onlineSupportPlatformUsecase->complainStatus($keyword);
+            return view('complain_status', compact('resDta','isSearch'));
+        }else{
+            return view('complain_status', compact('resDta','isSearch'));
+        }
+
+    }
+
+    /**
+     * @param Request $request
      * @param $id
      * @return mixed
      */

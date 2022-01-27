@@ -44,6 +44,15 @@ class OnlineSupportPlatformUsecase
     }
 
     /**
+     * @param $keyword
+     * @return mixed
+     */
+    public function complainStatus($keyword)
+    {
+        return $this->OnlineSupportPlatformRepository->complainStatus($keyword);
+    }
+
+    /**
      * @param $id
      * @return mixed
      */

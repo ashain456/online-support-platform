@@ -15,11 +15,11 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('agent_id')->unsigned()->default(0);
             $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_phone');
             $table->text('customer_problem');
+            $table->text('customer_key');
             $table->text('agent_comment')->default("");
             $table->string('status')->default("PENDING");
             $table->dateTime('created_at');

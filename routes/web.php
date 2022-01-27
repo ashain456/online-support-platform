@@ -30,6 +30,7 @@ Route::get('agent/logout', [LoginController::class, 'agentLogout'])->name('agent
 Route::get('dashboard', [OnlineSupportPlatformController::class, 'dashboard'])->name('dashboard');
 Route::get('ticket', [OnlineSupportPlatformController::class, 'ticket'])->name('ticket');
 Route::get('complain', [OnlineSupportPlatformController::class, 'complain'])->name('customer-complains');
+Route::get('complain/status', [OnlineSupportPlatformController::class, 'complainStatus'])->name('customer-complains-status');
 Route::get('customer/{id}/complain', [OnlineSupportPlatformController::class, 'complainInfo'])->name('customer-complain-info');
 Route::post('customer/{id}/comment', [OnlineSupportPlatformController::class, 'complainAddComment'])->name('customer-comment');
 Route::post('ticket/create', [OnlineSupportPlatformController::class, 'createTicket'])->name('create-ticket');

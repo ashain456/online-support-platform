@@ -23,12 +23,16 @@
 
                 @if(!session()->exists('token-key'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Agent Login</a>
-                    </li>
-                @endif
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('ticket') }}">Create Support Ticket</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('customer-complains-status') }}">Complain Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-content="Agent Login" style="color: #b1f59a!important;" class="nav-link logout" href="{{ route('login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                    </li>
+                @endif
+
                 @if(session()->exists('token-key'))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('customer-complains') }}">Customer Complains</a>
@@ -50,6 +54,7 @@
             <div class="mt-4 p-5 bg-primary text-white rounded">
                 <h1>Online Support Platform</h1>
                 <p>Welcome to the Online Support Platform Admin Panel</p>
+                <a href="{{ route('customer-complains') }}" class="btn btn-dark btn-lg">View Customer Complains</a>
             </div>
         </div>
     </div>

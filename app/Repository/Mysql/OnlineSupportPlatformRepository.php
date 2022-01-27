@@ -27,6 +27,7 @@ class OnlineSupportPlatformRepository implements OnlineSupportPlatformRepository
             $tickets->customer_email = $reqData['customer_email'];
             $tickets->customer_phone = $reqData['customer_phone'];
             $tickets->customer_problem = $reqData['customer_problem'];
+            $tickets->customer_key = "COM-OSP-".time();
             $tickets->created_at = Carbon::now()->format('Y-m-d H:i:s');
 
             return $tickets->save();
@@ -52,6 +53,28 @@ class OnlineSupportPlatformRepository implements OnlineSupportPlatformRepository
                    $query->where('customer_name', 'like', '%' . $keyword . '%');
                 }
              return $query->paginate(20);
+
+        }catch (\Exception $ex) {
+            Log::error("Error in query: ", (array)$ex);
+            throw $ex;
+        }
+    }
+
+    /**
+     * @param $keyword
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|mixed
+     * @throws \Exception
+     */
+    public function complainStatus($keyword)
+    {
+        try{
+
+            $query = DB::table(Tickets::TABLE)
+                ->select('*');
+            if(!empty($keyword)){
+                $query->where('customer_key', '=', trim($keyword));
+            }
+            return $query->get()->first();
 
         }catch (\Exception $ex) {
             Log::error("Error in query: ", (array)$ex);

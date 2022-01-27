@@ -6,8 +6,28 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
-                            <h3 class="card-header text-center">Customer Complain Information</h3>
+                            <h3 class="card-header text-center">Check Complain Feedback</h3>
                             <div class="card-body">
+
+                                @if(empty($resDta) && $isSearch)
+
+                                    <div class="alert alert-danger" role="alert">
+                                        Result not found. Invalid key
+                                    </div>
+
+                                @endif
+
+                                <form action="{{ route('customer-complains-status') }}" method="GET">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Enter your complain key" name="q">
+                                        <button class="btn btn-primary" type="submit">Search</button>
+                                        <button class="btn btn-dark" onClick="location.href='{{ route('customer-complains-status') }}'" type="button">Cancel</button>
+                                    </div>
+                                </form>
+
+                                <hr />
+
+                                @if(isset($resDta) && !empty($resDta) && $isSearch)
 
                                 <table class="table table-striped">
                                     <thead>
@@ -28,11 +48,7 @@
                                             <td>{{ $resDta->customer_phone }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Key</th>
-                                            <td>{{ $resDta->customer_key }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th valign="top">Complain</th>
+                                            <th>complain</th>
                                             <td>{{ $resDta->customer_problem }}</td>
                                         </tr>
                                         <tr>
@@ -49,35 +65,14 @@
                                             <th>Created At</th>
                                             <td>{{ $resDta->created_at }}</td>
                                         </tr>
-                                        <tr>
-                                            <th colspan="2">
 
-                                                <form action="{{ route('customer-comment', $resDta->id) }}" method="POST">
-                                                    @csrf
-                                                    <div class="form-group mb-3">
-                                                        <textarea placeholder="Add comment here...." id="problem" class="form-control" name="agent_comment"></textarea>
-                                                        <div class="notes">Max 400 digits long</div>
-                                                        @if ($errors->has('agent_comment'))
-                                                            <span class="text-danger">{{ $errors->first('agent_comment') }}</span>
-                                                        @endif
-                                                    </div>
-
-                                                    <div class="d-grid mx-auto">
-                                                        <div class="btn-group special" role="group" aria-label="...">
-                                                            <a href="/complain" class="btn btn-dark m-2 btn-block">Back</a>
-                                                            <button type="submit" class="btn btn-success m-2 btn-block">Add Comment</button>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-
-                                            </th>
-                                        </tr>
                                     </thead>
                                     <tbody>
 
                                     </tbody>
                                 </table>
+
+                                @endif
 
                             </div>
                         </div>

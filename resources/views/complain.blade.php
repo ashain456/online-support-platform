@@ -12,7 +12,7 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" placeholder="Search By Customer Name" name="q">
                                         <button class="btn btn-primary" type="submit">Search</button>
-                                        <button class="btn btn-dark" onClick="location.href='/complain'" type="button">Cancel</button>
+                                        <button class="btn btn-dark" onClick="location.href='{{ route('customer-complains') }}'" type="button">Cancel</button>
                                     </div>
                                 </form>
                                 <hr />
@@ -24,7 +24,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>complain</th>
+                                        <th>Key</th>
                                         <th>Ticket Status</th>
                                         <th>Created At</th>
                                         <th>Action</th>
@@ -37,7 +37,7 @@
                                                 <td>{{ $dta->customer_name }}</td>
                                                 <td>{{ $dta->customer_email }}</td>
                                                 <td>{{ $dta->customer_phone }}</td>
-                                                <td width="280">{{ $dta->customer_problem }}</td>
+                                                <td>{{ $dta->customer_key }}</td>
                                                 <td align="center">
                                                     @if( $dta->status == "PENDING")
                                                     <span class="badge bg-warning">{{ $dta->status }}</span>
@@ -46,7 +46,7 @@
                                                     @endif
                                                 </td>
                                                 <td>{{ $dta->created_at }}</td>
-                                                <td>
+                                                <td align="center">
                                                     <a href="/customer/{{ $dta->id }}/complain" ><button data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover" data-bs-content="View Complain" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></button></a>
                                                 </td>
                                             </tr>

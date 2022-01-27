@@ -21,6 +21,12 @@ interface OnlineSupportPlatformRepositoryInterface
     public function listComplains($keyword);
 
     /**
+     * @param $keyword
+     * @return mixed
+     */
+    public function complainStatus($keyword);
+
+    /**
      * @param $id
      * @return mixed
      */
