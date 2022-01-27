@@ -13,7 +13,7 @@
 
 - install apache server PHP 7.4
 - install composer
-- clone laravel `api` to the apache sever environment (PHP 7.4)
+- clone laravel `Online Support Platform Project` to the apache sever environment (PHP 7.4)
 - run `composer install`
 
 
