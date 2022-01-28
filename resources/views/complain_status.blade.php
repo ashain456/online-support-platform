@@ -73,7 +73,7 @@
                                         @else
                                         <tr style="background: #fab0a6;">
                                             <th valign="top">Agent Feedback</th>
-                                            <td>No feed back yet</td>
+                                            <td>No feedback yet</td>
                                         </tr>
                                         @endif
 
