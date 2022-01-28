@@ -28,7 +28,7 @@
                                 <hr />
 
                                 @if(isset($resDta) && !empty($resDta) && $isSearch)
-
+                                <div style="overflow-x:auto;">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -61,11 +61,11 @@
                                             <th>Created At</th>
                                             <td>{{ $resDta->created_at }}</td>
                                         </tr>
-                                        <tr>
+                                        <tr style="background: #fdf596;">
                                             <th valign="top">Your Complain</th>
                                             <td>{{ $resDta->customer_problem }}</td>
                                         </tr>
-                                        <tr>
+                                        <tr style="background: #bdfaa6;">
                                             <th valign="top">Agent Feedback</th>
                                             <td>{{ $resDta->agent_comment }}</td>
                                         </tr>
@@ -74,7 +74,7 @@
 
                                     </tbody>
                                 </table>
-
+                                </div>
                                 @endif
 
                             </div>

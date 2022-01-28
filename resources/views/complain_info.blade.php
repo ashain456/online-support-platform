@@ -8,7 +8,7 @@
                     <div class="card">
                             <h3 class="card-header text-center">Customer Complain Information</h3>
                             <div class="card-body">
-
+                                <div style="overflow-x:auto;">
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -78,7 +78,7 @@
 
                                     </tbody>
                                 </table>
-
+                                </div>
                             </div>
                         </div>
                     </div>
