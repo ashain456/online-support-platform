@@ -32,27 +32,23 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th width="30%">Id</th>
+                                            <th width="30%">Your Id</th>
                                             <td>{{ $resDta->id }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Your Name</th>
                                             <td>{{ $resDta->customer_name }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Email</th>
+                                            <th>Your Email</th>
                                             <td>{{ $resDta->customer_email }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Phone</th>
+                                            <th>Your Phone</th>
                                             <td>{{ $resDta->customer_phone }}</td>
                                         </tr>
                                         <tr>
-                                            <th>complain</th>
-                                            <td>{{ $resDta->customer_problem }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Ticket Status</th>
+                                            <th>Your Ticket Status</th>
                                             <td>
                                                 @if( $resDta->status == "PENDING")
                                                     <span class="badge bg-warning">{{ $resDta->status }}</span>
@@ -65,7 +61,14 @@
                                             <th>Created At</th>
                                             <td>{{ $resDta->created_at }}</td>
                                         </tr>
-
+                                        <tr>
+                                            <th valign="top">Your Complain</th>
+                                            <td>{{ $resDta->customer_problem }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th valign="top">Agent Feedback</th>
+                                            <td>{{ $resDta->agent_comment }}</td>
+                                        </tr>
                                     </thead>
                                     <tbody>
 
