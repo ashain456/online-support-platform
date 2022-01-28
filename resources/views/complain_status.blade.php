@@ -65,10 +65,18 @@
                                             <th valign="top">Your Complain</th>
                                             <td>{{ $resDta->customer_problem }}</td>
                                         </tr>
+                                        @if($resDta->agent_comment != "")
                                         <tr style="background: #bdfaa6;">
                                             <th valign="top">Agent Feedback</th>
                                             <td>{{ $resDta->agent_comment }}</td>
                                         </tr>
+                                        @else
+                                        <tr style="background: #fab0a6;">
+                                            <th valign="top">Agent Feedback</th>
+                                            <td>No feed back yet</td>
+                                        </tr>
+                                        @endif
+
                                     </thead>
                                     <tbody>
 
