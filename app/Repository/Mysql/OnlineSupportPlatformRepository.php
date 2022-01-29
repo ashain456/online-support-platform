@@ -27,7 +27,7 @@ class OnlineSupportPlatformRepository implements OnlineSupportPlatformRepository
             $tickets->customer_email = $reqData['customer_email'];
             $tickets->customer_phone = $reqData['customer_phone'];
             $tickets->customer_problem = $reqData['customer_problem'];
-            $tickets->customer_key = "COM-OSP-".time();
+            $tickets->customer_key = $reqData['complain_key'];
             $tickets->created_at = Carbon::now()->format('Y-m-d H:i:s');
 
             return $tickets->save();

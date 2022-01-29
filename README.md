@@ -17,7 +17,7 @@
 - run `composer install`
 
 
-#### Database setup (MySql)
+#### Database setup (MySql) & mail server
 
 Create DB Name 'support_platform_db'
 Query: `CREATE DATABASE support_platform_db;`
@@ -30,6 +30,16 @@ DB_PORT=3306
 DB_DATABASE=support_platform_db
 DB_USERNAME=root
 DB_PASSWORD=root
+````
+````
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=infotestmailer2022@gmail.com
+MAIL_PASSWORD=testmailer@123
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=infotestmailer2022@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
 ````
 
 - migrate table to DB
@@ -65,3 +75,7 @@ Password: admin@123
 ![alt text](5.png)
 
 ![alt text](6.png)
+
+![alt text](7.png)
+
+![alt text](8.png)

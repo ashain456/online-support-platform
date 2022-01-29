@@ -3,20 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Usecase\LoginUsecase;
+use App\Usecase\MailUsecase;
 use App\Usecase\OnlineSupportPlatformUsecase;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class OnlineSupportPlatformController extends Controller
 {
+    /**
+     * @var MailUsecase
+     */
+    private $mailUsecase;
 
+    /**
+     * @param LoginUsecase $loginUsecase
+     * @param OnlineSupportPlatformUsecase $onlineSupportPlatformUsecase
+     * @param MailUsecase $mailUsecase
+     */
     public function __construct(
         LoginUsecase $loginUsecase,
-        OnlineSupportPlatformUsecase $onlineSupportPlatformUsecase
+        OnlineSupportPlatformUsecase $onlineSupportPlatformUsecase,
+        MailUsecase $mailUsecase
     )
     {
         $this->loginUsecase = $loginUsecase;
         $this->onlineSupportPlatformUsecase = $onlineSupportPlatformUsecase;
+        $this->mailUsecase = $mailUsecase;
     }
 
     /**
@@ -84,7 +96,21 @@ class OnlineSupportPlatformController extends Controller
         ]);
 
         $data = $request->all();
-        $this->onlineSupportPlatformUsecase->complainAddComment($data, $id);
+
+        $res = $this->onlineSupportPlatformUsecase->complainAddComment($data, $id);
+
+        // send email to client to inform the ticket has open
+        if($res){
+            $subject = "Replied to your complaint";
+            $to = $data['customer_email'];
+            $body = "<p>Dear customer,</p>";
+            $body .= "<p>We were looked at your complaint and replied</p>";
+            $body .= "<div style='font-weight: bold; background: #bfffd0; padding: 10px; line-height: 24px; border: 2px solid #93e0a7;'>Your name is: ".$data['customer_name']."<br />";
+            $body .= "Your complain key is: ".$data['customer_key']."</div>";
+            $body .= "<p>Use your key and review your complaint status from : <a href='http://127.0.0.1:8000/complain/status?q=".$data['customer_key']."' >CLECK HERE</a> </p>";
+
+            $this->mailUsecase->sendMail($to, $subject, $body);
+        }
 
         $resDta = $this->onlineSupportPlatformUsecase->listComplains("");
         return view('complain', compact('resDta'));
@@ -123,7 +149,22 @@ class OnlineSupportPlatformController extends Controller
         ]);
 
         $data = $request->all();
+        $data['complain_key'] = "COM-OSP-".time();
         $resDta = $this->onlineSupportPlatformUsecase->createTicket($data);
+
+        // send email to client to view their complaint by key
+        if($resDta){
+            $subject = "Received Your Complaint";
+            $to = $data['customer_email'];
+            $body = "<p>Dear customer,</p>";
+            $body .= "<p>We have received your complaint</p>";
+            $body .= "<div style='font-weight: bold; background: #bfffd0; padding: 10px; line-height: 24px; border: 2px solid #93e0a7;'>Your name is: ".$data['customer_name']."<br />";
+            $body .= "Your complain key is: ".$data['complain_key']."</div>";
+            $body .= "<p>Use your key and review your complaint status from : <a href='http://127.0.0.1:8000/complain/status?q=".$data['complain_key']."' >CLECK HERE</a> </p>";
+
+            $this->mailUsecase->sendMail($to, $subject, $body);
+        }
+
         return view('ticket', compact('resDta'));
     }
 

@@ -55,13 +55,16 @@
                                                 <form action="{{ route('customer-comment', $resDta->id) }}" method="POST">
                                                     @csrf
                                                     <div class="form-group mb-3">
+                                                        <input style="visibility: hidden;" type="text" value="{{ $resDta->customer_name }}" id="customer_name" name="customer_name">
+                                                        <input style="visibility: hidden;" type="text" value="{{ $resDta->customer_email }}" id="customer_email" name="customer_email">
+                                                        <input style="visibility: hidden;" type="text" value="{{ $resDta->customer_key }}" id="customer_key" name="customer_key">
+
                                                         <textarea placeholder="Add comment here...." id="problem" class="form-control" name="agent_comment"></textarea>
-                                                        <div class="notes">Max 400 digits long</div>
+                                                        <div class="notes">Max 400 charters long</div>
                                                         @if ($errors->has('agent_comment'))
                                                             <span class="text-danger">{{ $errors->first('agent_comment') }}</span>
                                                         @endif
                                                     </div>
-
                                                     <div class="d-grid mx-auto">
                                                         <div class="btn-group special" role="group" aria-label="...">
                                                             <a href="/complain" class="btn btn-dark m-2 btn-block">Back</a>
