@@ -112,8 +112,7 @@ class OnlineSupportPlatformController extends Controller
             $this->mailUsecase->sendMail($to, $subject, $body);
         }
 
-        $resDta = $this->onlineSupportPlatformUsecase->listComplains("");
-        return view('complain', compact('resDta'));
+        return redirect('complain');
 
     }
 
